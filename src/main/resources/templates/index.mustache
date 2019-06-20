@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<head>
+    <title>Main page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="static.css.style.css">
+</head>
+<body>
+<header align="center">
+    <h1>База данных выданных децимальных номеров</h1>
+    <hr>
+</header>
+
+
+<div>
+    <form method="post" action="add">
+        <input type="text" name="projectName" placeholder="Имя проекта">
+        <button type="submit">Добавить</button>
+    </form>
+</div>
+
+
+<a href="index.mustache">На главную</a>
+<table>
+    <form method="post" action="filter">
+        <tr>
+            <td>Наименование изделия, документа в составе проекта <br>
+                или наименование проекта
+            </td>
+            <td>
+                <input size="80" type="text" name="filter1" value>
+            </td>
+        </tr>
+        <tr>
+            <td>Децимальный номер или шифр
+            </td>
+            <td>
+                <input size="80" type="text" name="filter2">
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td align="left">
+                <button type="submit">Поиск</button>
+            </td>
+        </tr>
+
+    </form>
+</table>
+
+<h4>Результаты поиска:</h4>
+<div align="center">
+    <table border="1" width="90%">
+        <tr>
+            <td></td>
+            <td id="decimal">Децимальный номер или шифр</td>
+            <td>Инвентарный номер в журнале</td>
+            <td id="projectName drawName">Наименование изделия, документа в составе проекта
+                <br> или наименование проекта
+            </td>
+            <td>Служебные отметки</td>
+            <td>Разработчик документа</td>
+            <td>Структурное подразделение</td>
+        </tr>
+        {{#projects}}
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>{{projectName}}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        {{/projects}}
+    </table>
+</div>
+</body>
+</html>
