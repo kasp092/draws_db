@@ -7,4 +7,7 @@ import java.util.List;
 
 public interface ProjectRepo extends CrudRepository<Project,Long>{
     List<Project> findByProjectName(String projectName);
+    List<Project> findByProjectNameContains(String projectName);
+
+
 }

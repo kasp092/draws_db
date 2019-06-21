@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
 <head>
-    <title>Main page</title>
+    <title>База данных выданных децимальных номеров</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" type="text/css" href="static.css.style.css">
+    <!--<link rel="stylesheet" type="text/css" href="static/css/style.css">-->
 </head>
 <body>
 <header align="center">
@@ -11,41 +11,16 @@
 </header>
 
 
-<div>
-    <form method="post" action="add">
-        <input type="text" name="projectName" placeholder="Имя проекта">
-        <button type="submit">Добавить</button>
-    </form>
-</div>
+<!--<div>-->
+<!--<form method="post" action="add">-->
+<!--<input type="text" name="projectName" placeholder="Имя проекта">-->
+<!--<button type="submit">Добавить</button>-->
+<!--</form>-->
+<!--</div>-->
+
+<a href="/">На главную</a>
 
 
-<a href="index.mustache">На главную</a>
-<table>
-    <form method="post" action="filter">
-        <tr>
-            <td>Наименование изделия, документа в составе проекта <br>
-                или наименование проекта
-            </td>
-            <td>
-                <input size="80" type="text" name="filter1" value>
-            </td>
-        </tr>
-        <tr>
-            <td>Децимальный номер или шифр
-            </td>
-            <td>
-                <input size="80" type="text" name="filter2">
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td align="left">
-                <button type="submit">Поиск</button>
-            </td>
-        </tr>
-
-    </form>
-</table>
 
 <h4>Результаты поиска:</h4>
 <div align="center">
@@ -64,15 +39,20 @@
         {{#projects}}
             <tr>
                 <td></td>
-                <td></td>
+                <td>{{projectName}}</td>
                 <td></td>
                 <td>{{projectName}}</td>
                 <td></td>
-                <td></td>
+                <td>{{projectLeader}}</td>
                 <td></td>
             </tr>
         {{/projects}}
     </table>
 </div>
+
+<footer>
+    <hr>
+    <p align="center">По вопросам использования обращайтесь по адресу a.lebedev@inenergy.ru</p>
+</footer>
 </body>
 </html>

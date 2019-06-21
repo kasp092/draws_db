@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<head>
+    <title>База данных выданных децимальных номеров</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<header align="center">
+    <h1>База данных выданных децимальных номеров </h1>
+    <hr>
+</header>
+<a href="/">На главную</a>
+
+<form method="get">
+    <table>
+        <tr>
+            <td>Это проект/документ в проекте</td>
+            <td>
+                <select name="object">
+                    <option value="project">Проект</option>
+                    <option selected="selected" value="draw">Документ</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Относится к проекту, НИР, ОКР</td>
+            <td>
+                <select name="parent_id">
+                    <option value="0">Не входит</option>
+                    {{#projects}}
+                        <option value="{{id}}">{{projectName}}</option>
+                    {{/projects}}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Наименование изделия, документа в составе проекта <br>
+                или наименование проекта*
+            </td>
+            <td>
+                <input size="80" type="text" name="name" value>
+            </td>
+        </tr>
+        <tr>
+            <td>Децимальный номер или шифр*</td>
+            <td>
+                <select name="decimal_code" size="1">
+                    <option value="АЕНЖ.">АЕНЖ.</option>
+                    <option value="АСШБ.">АСШБ.</option>
+                    <option value="ТРСМ.">ТРСМ.</option>
+                    <option value="other">Другое</option>
+                </select>
+                <input size="70" type="text" name="decimal_value" value>
+            </td>
+        </tr>
+        <tr>
+            <td>Инвентарный номер в журнале</td>
+            <td><input size="80" type="text" name="inventoryNumber" value></td>
+        </tr>
+        <tr>
+            <td>Структурное подразделение</td>
+            <td>
+                <input size="80" type="text" name="department" value>
+            </td>
+        </tr>
+        <tr>
+            <td>Разработчик документа</td>
+            <td>
+                <input size="80" type="text" name="author" value>
+            </td>
+        </tr>
+        <tr>
+            <td>Служебные отметки</td>
+            <td>
+                <textarea cols="62" rows="5" type="text" name="comments"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button type="submit">Добавить</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+<footer align="center">
+    <hr>
+    По вопросам использования обращайтесь по адресу a.lebedev@inenergy.ru
+</footer>
+</body>
+</html>
