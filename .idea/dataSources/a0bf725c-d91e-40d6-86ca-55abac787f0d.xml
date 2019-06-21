@@ -22,6 +22,9 @@
       <IntrospectionStateNumber>519</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
+      <Relations>sequence|table|17115|17117|1
+sequence|table|17126|17128|1
+</Relations>
     </database>
     <role id="5" parent="1" name="pg_execute_server_program">
       <ObjectId>4571</ObjectId>
@@ -115,7 +118,8 @@
       <ObjectId>17020</ObjectId>
       <StateNumber>906</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionTimestamp>2019-06-20.13:35:11.299</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2019-06-21.13:49:25.623</IntrospectionTimestamp>
+      <IntrospectionStateNumber>969</IntrospectionStateNumber>
       <Visible>1</Visible>
     </schema>
     <access-method id="21" parent="4" name="btree">
@@ -182,5 +186,181 @@
       <CacheSize>1</CacheSize>
       <DataType>bigint</DataType>
     </sequence>
+    <sequence id="29" parent="20" name="drawings_id_seq">
+      <ObjectId>17115</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>961</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>bigint</DataType>
+    </sequence>
+    <sequence id="30" parent="20" name="projects_id_seq">
+      <ObjectId>17126</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>962</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>bigint</DataType>
+    </sequence>
+    <table id="31" parent="20" name="drawings">
+      <ObjectId>17117</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>969</StateNumber>
+    </table>
+    <table id="32" parent="20" name="projects">
+      <ObjectId>17128</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>969</StateNumber>
+    </table>
+    <column id="33" parent="31" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>961</StateNumber>
+      <DefaultExpression>nextval(&apos;test.drawings_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="34" parent="31" name="author">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>961</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="35" parent="31" name="comments">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>961</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="36" parent="31" name="decimal_number">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>961</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="37" parent="31" name="draw_name">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>961</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="38" parent="31" name="inventory_number">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>961</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="39" parent="31" name="project_id">
+      <Position>7</Position>
+      <DataType>bigint|0s</DataType>
+      <StateNumber>961</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <index id="40" parent="31" name="drawings_pkey">
+      <ObjectId>17124</ObjectId>
+      <StateNumber>961</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="41" parent="31" name="uk_evtqhitnmfpb7u7plietc3ul1">
+      <ObjectId>17137</ObjectId>
+      <StateNumber>964</StateNumber>
+      <ColNames>decimal_number</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="42" parent="31" name="uk_2n6dgl23nujgsr63cxi6btk66">
+      <ObjectId>17139</ObjectId>
+      <StateNumber>966</StateNumber>
+      <ColNames>inventory_number</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="43" parent="31" name="drawings_pkey">
+      <ObjectId>17125</ObjectId>
+      <StateNumber>961</StateNumber>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>drawings_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="44" parent="31" name="uk_evtqhitnmfpb7u7plietc3ul1">
+      <ObjectId>17138</ObjectId>
+      <StateNumber>964</StateNumber>
+      <ColNames>decimal_number</ColNames>
+      <UnderlyingIndexName>uk_evtqhitnmfpb7u7plietc3ul1</UnderlyingIndexName>
+    </key>
+    <key id="45" parent="31" name="uk_2n6dgl23nujgsr63cxi6btk66">
+      <ObjectId>17140</ObjectId>
+      <StateNumber>966</StateNumber>
+      <ColNames>inventory_number</ColNames>
+      <UnderlyingIndexName>uk_2n6dgl23nujgsr63cxi6btk66</UnderlyingIndexName>
+    </key>
+    <foreign-key id="46" parent="31" name="fktg7f2fhn1ci075f8iaan0pacb">
+      <ObjectId>17143</ObjectId>
+      <StateNumber>969</StateNumber>
+      <ColNames>project_id</ColNames>
+      <RefTableId>17128</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>projects</RefTableName>
+      <RefKeyName>projects_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="47" parent="32" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>962</StateNumber>
+      <DefaultExpression>nextval(&apos;test.projects_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="48" parent="32" name="project_description">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>962</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="49" parent="32" name="department">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>962</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="50" parent="32" name="project_leader">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>962</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="51" parent="32" name="project_name">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>962</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="52" parent="32" name="projects_pkey">
+      <ObjectId>17135</ObjectId>
+      <StateNumber>962</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="53" parent="32" name="uk_5brqsoho9qc97d54l39n7osde">
+      <ObjectId>17141</ObjectId>
+      <StateNumber>968</StateNumber>
+      <ColNames>project_name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="54" parent="32" name="projects_pkey">
+      <ObjectId>17136</ObjectId>
+      <StateNumber>962</StateNumber>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>projects_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="55" parent="32" name="uk_5brqsoho9qc97d54l39n7osde">
+      <ObjectId>17142</ObjectId>
+      <StateNumber>968</StateNumber>
+      <ColNames>project_name</ColNames>
+      <UnderlyingIndexName>uk_5brqsoho9qc97d54l39n7osde</UnderlyingIndexName>
+    </key>
   </database-model>
 </dataSource>
